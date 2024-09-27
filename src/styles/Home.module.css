@@ -3,12 +3,19 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 75vh;
     text-align: center;
+    background-color: #FA9BCA;
   }
   
   .title {
     font-size: 3rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  .title2 {
+    font-size: 3rem;
+    text-align: center;
     margin-bottom: 20px;
     color: #333;
   }
@@ -18,3 +25,29 @@
     color: #666;
   }
   
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden; 
+    text-align: center; 
+    padding: 1em;
+    background-color: white; 
+}
+
+.cardImage {
+    width: 100%; 
+    height: auto; 
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.centro{
+  display: flex;
+  justify-content: center;
+
+}
+

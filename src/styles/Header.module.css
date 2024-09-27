@@ -1,0 +1,36 @@
+.container {
+    background-color: #1e90ff; 
+    text-align: center;
+    padding: 3em;
+}
+
+.navList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navItem {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif;
+    color: #000;
+}
+
+.navLink {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.navLink:hover {
+    color: #fff; 
+}
+
+.separator {
+    font-size: 24px;
+}
