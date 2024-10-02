@@ -11,7 +11,7 @@ export default function Home() {
         </p>
       </div>
       <h2 className={styles.title2}>Nossos Sorvetes</h2>
-      
+
       <section className={styles.tam}>
         <div className={styles.centro}>
           <div className={styles.grid}>
@@ -19,26 +19,30 @@ export default function Home() {
               <img src="/p4375.png" alt="Sorvete" className={styles.cardImage} />
               <h3 className={styles.cardTitle}>Sorvete de Morango</h3>
               <p className={styles.cardDescription}>
-                Sorvete de morango, feito com amor e cuidado, com a melhor qualidade</p>
-              <img />
+                Sorvete de morango, feito com amor e cuidado, com a melhor qualidade
+              </p>
             </a>
             <a href="#" className={styles.card}>
               <img src="/p4375.png" alt="Sorvete" className={styles.cardImage} />
               <h3 className={styles.cardTitle}>Sorvete de Morango</h3>
               <p className={styles.cardDescription}>
-                Sorvete de morango, feito com amor e cuidado, com a melhor qualidade</p>
-              <img />
+                Sorvete de morango, feito com amor e cuidado, com a melhor qualidade
+              </p>
             </a>
             <a href="#" className={styles.card}>
               <img src="/p4375.png" alt="Sorvete" className={styles.cardImage} />
               <h3 className={styles.cardTitle}>Sorvete de Morango</h3>
               <p className={styles.cardDescription}>
-                Sorvete de morango, feito com amor e cuidado, com a melhor qualidade</p>
-              <img />
+                Sorvete de morango, feito com amor e cuidado, com a melhor qualidade
+              </p>
             </a>
+          </div>
+          <div className={styles.buttonWrapper}>
+            <a href="#" className={styles.learnMoreButton}>Saiba mais</a>
           </div>
         </div>
       </section>
+
     </Layout>
   );
 }
