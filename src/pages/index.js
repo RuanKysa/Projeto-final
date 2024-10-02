@@ -1,5 +1,6 @@
 import Layout from '../layout/layout';
 import styles from '../styles/Home.module.css';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -16,21 +17,21 @@ export default function Home() {
         <div className={styles.centro}>
           <div className={styles.grid}>
             <a href="#" className={styles.card}>
-              <img src="/p4375.png" alt="Sorvete" className={styles.cardImage} />
+              <img src="/2.png" alt="Sorvete" className={styles.cardImage} />
               <h3 className={styles.cardTitle}>Sorvete de Morango</h3>
               <p className={styles.cardDescription}>
                 Sorvete de morango, feito com amor e cuidado, com a melhor qualidade
               </p>
             </a>
             <a href="#" className={styles.card}>
-              <img src="/p4375.png" alt="Sorvete" className={styles.cardImage} />
+              <img src="/P_morango.jpeg" alt="Sorvete" className={styles.cardImage} />
               <h3 className={styles.cardTitle}>Sorvete de Morango</h3>
               <p className={styles.cardDescription}>
                 Sorvete de morango, feito com amor e cuidado, com a melhor qualidade
               </p>
             </a>
             <a href="#" className={styles.card}>
-              <img src="/p4375.png" alt="Sorvete" className={styles.cardImage} />
+            <Image src="/2.png" alt="Sorvete de Morango" width={200} height={200} className={styles.cardImage} />
               <h3 className={styles.cardTitle}>Sorvete de Morango</h3>
               <p className={styles.cardDescription}>
                 Sorvete de morango, feito com amor e cuidado, com a melhor qualidade
