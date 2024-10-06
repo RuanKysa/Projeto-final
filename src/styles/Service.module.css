@@ -1,0 +1,34 @@
+/* Service.module.css */
+.serviceContainer {
+    padding: 20px;
+  }
+  
+  .sectionTitle {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .productsSection, .offersSection, .purchaseProcessSection {
+    margin-bottom: 30px;
+  }
+  
+  .productList, .purchaseSteps {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .productItem, .purchaseStep {
+    margin-bottom: 10px;
+  }
+  
+  .offer {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .offerTitle {
+    margin-bottom: 5px;
+  }
+  
