@@ -24,7 +24,7 @@ export default function Home() {
               </p>
             </a>
             <a href="#" className={styles.card}>
-              <img src="/P_morango.jpeg" alt="Sorvete" className={styles.cardImage} />
+              <img src="/2.png" alt="Sorvete" className={styles.cardImage} />
               <h3 className={styles.cardTitle}>Sorvete de Morango</h3>
               <p className={styles.cardDescription}>
                 Sorvete de morango, feito com amor e cuidado, com a melhor qualidade

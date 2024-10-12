@@ -1,5 +1,5 @@
 import Layout from "@/layout/layout";
-import Benefits from "@/components/Benefits"; // Importando o componente de benefícios
+import Benefits from "@/components/Benefits";
 import styles from "@/styles/Service.module.css";
 
 const products = [
