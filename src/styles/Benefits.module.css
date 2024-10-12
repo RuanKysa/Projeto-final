@@ -1,0 +1,26 @@
+.benefitsContainer {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem 0;
+}
+
+.benefit {
+    text-align: center;
+    max-width: 150px;
+}
+
+.icon {
+    font-size: 2.5rem;
+    color: #f2c379;
+    margin-bottom: 0.5rem;
+}
+
+.title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.description {
+    font-size: 0.9rem;
+    color: #777;
+}

@@ -1,4 +1,5 @@
 import Layout from "@/layout/layout";
+import Benefits from "@/components/Benefits"; // Importando o componente de benefícios
 import styles from "@/styles/Service.module.css";
 
 const products = [
@@ -17,12 +18,13 @@ const products = [
 export default function Service() {
     return (
         <Layout>
+            <Benefits />
+            
             <div className={styles.container}>
-                <h2 className={styles.title}>Top Product</h2>
+                <h2 className={styles.title}>Produto principal</h2>
                 <div className={styles.buttonGroup}>
-                    <button className={styles.button}>LATEST</button>
-                    <button className={styles.button}>SPECIAL</button>
-                    <button className={styles.button}>BESTSELLER</button>
+                    <button className={styles.button}>MAIS RECENTE</button>
+                    <button className={styles.button}>ESPECIAL</button>
                 </div>
                 <div className={styles.productGrid}>
                     {products.map((product) => (
@@ -54,7 +56,6 @@ export default function Service() {
                         </div>
                     ))}
                 </div>
-
             </div>
         </Layout>
     );
