@@ -1,5 +1,5 @@
 import Layout from "@/layout/layout";
-import styles from "@/styles/Contact.module.css";
+import styles from "@/styles/Contact.module.css"
 
 const contactInfo = {
   fone: '+55 42 12345-5678',

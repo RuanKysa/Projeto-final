@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Layout from "@/layout/layout";
 import Benefits from "@/components/Benefits";
 import styles from "@/styles/Service.module.css";
@@ -16,10 +17,23 @@ const products = [
 ];
 
 export default function Service() {
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = (product) => {
+        setSelectedProduct(product);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setSelectedProduct(null);
+    };
+
     return (
         <Layout>
             <Benefits />
-            
+
             <div className={styles.container}>
                 <h2 className={styles.title}>Produto principal</h2>
                 <div className={styles.buttonGroup}>
@@ -42,7 +56,10 @@ export default function Service() {
                                     <button className={styles.iconButton}>
                                         <i className="fa fa-heart"></i>
                                     </button>
-                                    <button className={styles.iconButton}>
+                                    <button
+                                        className={styles.iconButton}
+                                        onClick={() => openModal(product)}
+                                    >
                                         <i className="fa fa-eye"></i>
                                     </button>
                                     <button className={styles.iconButton}>
@@ -57,6 +74,19 @@ export default function Service() {
                     ))}
                 </div>
             </div>
+
+            {isModalOpen && selectedProduct && (
+                <div className={styles.modalOverlay}>
+                    <div className={styles.modalContent}>
+                        <button className={styles.closeButton} onClick={closeModal}>
+                            &times;
+                        </button>
+                        <img src={selectedProduct.image} alt={selectedProduct.name} className={styles.modalImage} />
+                        <h2>{selectedProduct.name}</h2>
+                        <p>${selectedProduct.price.toFixed(2)}</p>
+                    </div>
+                </div>
+            )}
         </Layout>
     );
 }
