@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Layout from "@/layout/layout";
 import Benefits from "@/components/Benefits";
+import Email from '@/components/email';
 import styles from "@/styles/Service.module.css";
 
 const products = [
@@ -32,7 +33,6 @@ export default function Service() {
 
     return (
         <Layout>
-            <Benefits />
 
             <div className={styles.container}>
                 <h2 className={styles.title}>Produto principal</h2>
@@ -74,6 +74,9 @@ export default function Service() {
                     ))}
                 </div>
             </div>
+            <Benefits />
+            <Email />
+
 
             {isModalOpen && selectedProduct && (
                 <div className={styles.modalOverlay}>
