@@ -8,7 +8,7 @@
 .title {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: #ff8800;
+  color: #fc48a2;
 }
 
 .buttonGroup {
@@ -16,7 +16,7 @@
 }
 
 .button {
-  background-color: #ffb400;
+  background-color: #fc48a2;
   border: none;
   color: white;
   padding: 0.5rem 1.5rem;
@@ -27,7 +27,7 @@
 }
 
 .button:hover {
-  background-color: #ff8800;
+  background-color: #ff0080;
 }
 
 .productGrid {
@@ -98,7 +98,7 @@
 }
 
 .iconButton:hover {
-  background-color: #ff8800;
+  background-color: #ff0080;
   color: white;
 }
 .modalOverlay {

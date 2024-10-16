@@ -25,12 +25,12 @@ export default function Service() {
         setSelectedProduct(product);
         setIsModalOpen(true);
     };
-
+    
     const closeModal = () => {
         setIsModalOpen(false);
         setSelectedProduct(null);
     };
-
+    
     return (
         <Layout>
 

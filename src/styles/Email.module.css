@@ -62,7 +62,7 @@
   }
   
   .subscribeButton {
-    background-color: #ff3299;
+    background-color: #fc48a2;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -72,6 +72,6 @@
   }
   
   .subscribeButton:hover {
-    background-color: #e08900;
+    background-color: #ff0080;
   }
   
