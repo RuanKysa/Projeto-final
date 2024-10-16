@@ -34,6 +34,12 @@ export default function Service() {
     return (
         <Layout>
 
+                <section className={styles.cor}>
+                    <h1>
+                        Services
+                    </h1>
+
+                </section>
             <div className={styles.container}>
                 <h2 className={styles.title}>Produto principal</h2>
                 <div className={styles.buttonGroup}>

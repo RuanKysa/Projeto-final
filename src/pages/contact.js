@@ -1,5 +1,5 @@
 import Layout from "@/layout/layout";
-import styles from "@/styles/Contact.module.css"
+import styles from "@/styles/Contact.module.css";
 
 const contactInfo = {
   fone: '+55 42 12345-5678',
@@ -29,43 +29,43 @@ export default function Contact() {
   return (
     <Layout>
       <div className={styles.container}>
-        <h1 className={styles.title}>Contato</h1>
-        <ul className={styles.list}>
-          <li className={styles.listItem}>Telefone: {contactInfo.fone}</li>
-          <li className={styles.listItem}>E-mail: {contactInfo.email}</li>
-          <li className={styles.listItem}>Endereço: {contactInfo.address}</li>
-          <li className={styles.listItem}>Social Media:
-            <ul className={styles.list}>
-              {/* <li className={styles.listItem}>
-                <a className={styles.link} href={contactInfo.socialMedia.facebook}>Facebook</a>
-              </li>
-              <li className={styles.listItem}>
-                <a className={styles.link} href={contactInfo.socialMedia.instagram}>Instagram</a>
-              </li> */}
-            </ul>
-          </li>
-          <li className={styles.listItem}>Responsáveis:</li>
-          <ul className={styles.list}>
-            {contactInfo.responsáveis.map((person, index) => (
-              <li key={index} className={styles.listItem}>
-                {person.nome} ({person.cargo})
-                <ul className={styles.list}>
-                  <li className={styles.listItem}>Telefone: {person.fone}</li>
-                  <li className={styles.listItem}>E-mail: {person.email}</li>
-                </ul>
-              </li>
-            ))}
-          </ul>
-          <li className={styles.listItem}>
-            <button className={styles.ctaButton}
-              onClick={() => {
-                window.open(`https://wa.me/${contactInfo.fone}`, '_blank');
-              }}
-            >
-              Contato via WhatsApp
-            </button>
-          </li>
-        </ul>
+        <h1 className={styles.title}>Fale Conosco</h1>
+        
+        <div className={styles.contactDetails}>
+          <h2 className={styles.subtitle}>Informações de Contato</h2>
+          <p><strong>Telefone:</strong> {contactInfo.fone}</p>
+          <p><strong>E-mail:</strong> {contactInfo.email}</p>
+          <p><strong>Endereço:</strong> {contactInfo.endereço}</p>
+        </div>
+        
+        <div className={styles.socialMedia}>
+          <h2 className={styles.subtitle}>Redes Sociais</h2>
+          <a className={styles.link} href={contactInfo.redesSociais.facebook} target="_blank" rel="noreferrer">
+            Facebook
+          </a>
+          <a className={styles.link} href={contactInfo.redesSociais.instagram} target="_blank" rel="noreferrer">
+            Instagram
+          </a>
+        </div>
+        
+        <div className={styles.team}>
+          <h2 className={styles.subtitle}>Responsáveis</h2>
+          {contactInfo.responsáveis.map((person, index) => (
+            <div key={index} className={styles.person}>
+              <h3>{person.nome}</h3>
+              <p><strong>Cargo:</strong> {person.cargo}</p>
+              <p><strong>Telefone:</strong> {person.fone}</p>
+              <p><strong>E-mail:</strong> {person.email}</p>
+            </div>
+          ))}
+        </div>
+        
+        <button
+          className={styles.whatsappButton}
+          onClick={() => window.open(`https://wa.me/${contactInfo.fone}`, '_blank')}
+        >
+          Contato via WhatsApp
+        </button>
       </div>
     </Layout>
   );

@@ -1,52 +1,82 @@
-/* Contact.module.css */
-
 .container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  text-align: center;
+  font-size: 2.8rem;
+  color: #ff6b6b;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.contactDetails, .socialMedia, .team {
+  margin-bottom: 30px;
+}
+
+.contactDetails p, .team p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.link {
+  display: block;
+  font-size: 1.2rem;
+  color: #ff6b6b;
+  text-decoration: none;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #e25555;
+}
+
+.person {
+  margin-bottom: 20px;
+}
+
+.whatsappButton {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 12px;
+  background-color: #25d366;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.whatsappButton:hover {
+  background-color: #20b859;
+}
+
+@media (max-width: 600px) {
   .title {
-    font-weight: bold;
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 2rem;
   }
-  
-  .list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+
+  .subtitle {
+    font-size: 1.5rem;
   }
-  
-  .list-item {
-    margin-bottom: 10px;
+
+  .contactDetails p, .team p, .link {
+    font-size: 1rem;
   }
-  
-  .list-item ul {
-    margin-left: 20px;
-  }
-  
-  .link {
-    text-decoration: none;
-    color: #337ab7;
-  }
-  
-  .link:hover {
-    color: #23527c;
-  }
-  
-  .cta-button {
-    background-color: #4CAF50;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .cta-button:hover {
-    background-color: #3e8e41;
-  }
+}
