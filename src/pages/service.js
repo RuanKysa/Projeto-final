@@ -1,51 +1,62 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "@/layout/layout";
 import Benefits from "@/components/Benefits";
 import Email from '@/components/email';
+import { db } from "@/firebaseConnection";
+import { collection, getDocs } from "firebase/firestore";
 import styles from "@/styles/Service.module.css";
-
-const products = [
-    { id: 1, name: "Mint Chocolate Chip", price: 20.00, image: "/1.jpg" },
-    { id: 2, name: "Caramel Ice Cream", price: 241.00, image: "/2.jpg" },
-    { id: 3, name: "Raspberry", price: 745.00, image: "/3.jpg" },
-    { id: 4, name: "Mango Dolly", price: 454.00, image: "/4.jpg" },
-    { id: 5, name: "Cotton Candy", price: 412.00, image: "/5.jpg" },
-    { id: 6, name: "Waffle Ice Cream", price: 122.00, image: "/6.jpg" },
-    { id: 7, name: "Ice Cream Cone", price: 241.00, image: "/7.jpg" },
-    { id: 8, name: "Chocolate Vanilla Ice Cream", price: 893.00, image: "/8.jpg" },
-    { id: 9, name: "Mix Ice Cream", price: 873.00, image: "/9.jpg" },
-    { id: 10, name: "Cherry", price: 854.00, image: "/10.jpg" }
-];
+import UploadImage from "@/components/UploadImage";
 
 export default function Service() {
+    const [products, setProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isFormVisible, setIsFormVisible] = useState(false); 
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const querySnapshot = await getDocs(collection(db, "products"));
+                const productList = querySnapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+                setProducts(productList);
+            } catch (error) {
+                console.error("Erro ao buscar produtos:", error);
+            }
+        };
+        fetchProducts();
+    }, []);
 
     const openModal = (product) => {
         setSelectedProduct(product);
         setIsModalOpen(true);
     };
-    
+
     const closeModal = () => {
         setIsModalOpen(false);
         setSelectedProduct(null);
     };
-    
+
+    const toggleFormVisibility = () => {
+        setIsFormVisible(!isFormVisible);
+    };
+
     return (
         <Layout>
-
-                <section className={styles.cor}>
-                    <h1>
-                        Services
-                    </h1>
-
-                </section>
+            <section className={styles.cor}>
+                <button className={styles.iconButton} onClick={toggleFormVisibility}>
+                    <i className="fa fa-plus"></i>
+                </button>
+                {isFormVisible && (
+                    <div className={styles.formSection}>
+                        <UploadImage />
+                    </div>
+                )}
+            </section>
             <div className={styles.container}>
                 <h2 className={styles.title}>Produto principal</h2>
-                <div className={styles.buttonGroup}>
-                    <button className={styles.button}>MAIS RECENTE</button>
-                    <button className={styles.button}>ESPECIAL</button>
-                </div>
                 <div className={styles.productGrid}>
                     {products.map((product) => (
                         <div key={product.id} className={styles.productCard}>
@@ -82,7 +93,6 @@ export default function Service() {
             </div>
             <Benefits />
             <Email />
-
 
             {isModalOpen && selectedProduct && (
                 <div className={styles.modalOverlay}>
