@@ -89,12 +89,8 @@ export default function Service() {
                                     </button>
                                     <button
                                         className={styles.iconButton}
-                                        onClick={() => openModal(product)}
-                                    >
+                                        onClick={() => openModal(product)}>
                                         <i className="fa fa-eye"></i>
-                                    </button>
-                                    <button className={styles.iconButton}>
-                                        <i className="fa fa-random"></i>
                                     </button>
                                     <button
                                         className={styles.iconButton}

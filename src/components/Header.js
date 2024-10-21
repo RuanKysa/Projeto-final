@@ -1,9 +1,35 @@
-
+// components/Header.js
 
 import Link from 'next/link';
-import styles from '../styles/Header.module.css'
+import { useEffect, useState } from 'react';
+import { auth } from '@/firebaseConnection';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import styles from '../styles/Header.module.css';
 
 export default function Header() {
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser(user);
+            } else {
+                setUser(null);
+            }
+        });
+
+        return () => unsubscribe(); // limpa o listener quando o componente é desmontado
+    }, []);
+
+    const handleLogout = async () => {
+        try {
+            await signOut(auth);
+            console.log("Logout bem-sucedido!");
+        } catch (err) {
+            console.error("Erro ao deslogar:", err);
+        }
+    };
+
     return (
         <header>
             <nav className={styles.container}>
@@ -23,9 +49,32 @@ export default function Header() {
                     <li className={styles.navItem}>
                         <Link href="/contact" className={styles.navLink}>Contact</Link>
                     </li>
+                    <li className={styles.separator}>|</li>
+                    {user ? (
+                        <>
+                            <li className={styles.navItem}>
+                                <img 
+                                    src={user.photoURL || '/default-avatar.png'} 
+                                    alt="User Avatar" 
+                                    className={styles.userAvatar} 
+                                />
+                            </li>
+                            <li className={styles.navItem}>
+                                <span className={styles.userEmail}>{user.email}</span>
+                            </li>
+                            <li className={styles.navItem}>
+                                <button onClick={handleLogout} className={styles.logoutButton}>
+                                    Logout
+                                </button>
+                            </li>
+                        </>
+                    ) : (
+                        <li className={styles.navItem}>
+                            <Link href="/login" className={styles.navLink}>Login</Link>
+                        </li>
+                    )}
                 </ul>
             </nav>
         </header>
     );
 }
-

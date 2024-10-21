@@ -1,3 +1,5 @@
+/* styles/Header.module.css */
+
 .container {
     background-color: #1e90ff; 
     text-align: center;
@@ -33,4 +35,17 @@
 
 .separator {
     font-size: 24px;
+}
+
+.userEmail {
+    margin-right: 8px; 
+    font-size: 16px; 
+    color: #fff; 
+}
+
+.userAvatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; 
+    object-fit: cover; 
 }
