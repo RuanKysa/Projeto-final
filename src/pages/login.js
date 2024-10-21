@@ -1,7 +1,15 @@
 import { useState, useEffect } from "react";
 import { auth } from "@/firebaseConnection";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
 import Layout from "@/layout/layout";
+import styles from "@/styles/Login.module.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -9,6 +17,8 @@ const Login = () => {
   const [error, setError] = useState("");
   const [user, setUser] = useState(null);
   const [isLoginMode, setIsLoginMode] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
+
   const handleLogin = async (e) => {
     e.preventDefault();
     const auth = getAuth();
@@ -16,6 +26,14 @@ const Login = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("Login bem-sucedido!");
+
+
+      if (email === "adm@sorveteria.com" && password === "Ruan123") {
+        setIsAdmin(true);
+        console.log("Usuário é um administrador!");
+      } else {
+        setIsAdmin(false);
+      }
     } catch (err) {
       setError(err.message);
     }
@@ -51,6 +69,7 @@ const Login = () => {
     try {
       await signOut(auth);
       console.log("Logout bem-sucedido!");
+      setIsAdmin(false); 
     } catch (err) {
       setError(err.message);
     }
@@ -67,13 +86,17 @@ const Login = () => {
 
   return (
     <Layout>
-      <div>
-        <h1>{isLoginMode ? "Login" : "Cadastro"}</h1>
-        {error && <p style={{ color: "red" }}>{error}</p>}
+      <div className={styles.container}>
+        <h1 className={styles.title}>{isLoginMode ? "Login" : "Cadastro"}</h1>
+        {error && <p className={styles.error}>{error}</p>}
 
         {!user ? (
-          <form onSubmit={isLoginMode ? handleLogin : handleRegister}>
+          <form
+            className={styles.form}
+            onSubmit={isLoginMode ? handleLogin : handleRegister}
+          >
             <input
+              className={styles.input}
               type="email"
               placeholder="Email"
               value={email}
@@ -81,13 +104,16 @@ const Login = () => {
               required
             />
             <input
+              className={styles.input}
               type="password"
               placeholder="Senha"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <button type="submit">{isLoginMode ? "Login" : "Cadastrar"}</button>
+            <button type="submit">
+              {isLoginMode ? "Login" : "Cadastrar"}
+            </button>
           </form>
         ) : (
           <div>
@@ -96,9 +122,14 @@ const Login = () => {
           </div>
         )}
         {!user && (
-          <button onClick={handleGoogleLogin}>Login com Google</button>
+          <button className={styles.googleButton} onClick={handleGoogleLogin}>
+            Login com Google
+          </button>
         )}
-        <button onClick={() => setIsLoginMode(!isLoginMode)}>
+        <button
+          className={styles.toggle}
+          onClick={() => setIsLoginMode(!isLoginMode)}
+        >
           {isLoginMode ? "Criar uma conta" : "Já tenho uma conta"}
         </button>
       </div>

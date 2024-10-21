@@ -29,6 +29,22 @@ export default function Service() {
         fetchProducts();
     }, []);
 
+    const addToCart = async (product) => {
+        try {
+            const response = await fetch('http://localhost:3001/add-to-cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(product),
+            });
+    
+            const result = await response.json();
+            console.log(result.message); // Mensagem de sucesso
+        } catch (error) {
+            console.error("Erro ao adicionar ao carrinho:", error);
+        }
+    };
     const openModal = (product) => {
         setSelectedProduct(product);
         setIsModalOpen(true);
