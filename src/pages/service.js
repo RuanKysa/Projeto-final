@@ -3,7 +3,7 @@ import Layout from "@/layout/layout";
 import Benefits from "@/components/Benefits";
 import Email from '@/components/email';
 import { db } from "@/firebaseConnection";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import styles from "@/styles/Service.module.css";
 import UploadImage from "@/components/UploadImage";
 
@@ -11,7 +11,7 @@ export default function Service() {
     const [products, setProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isFormVisible, setIsFormVisible] = useState(false); 
+    const [isFormVisible, setIsFormVisible] = useState(false);
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -41,6 +41,20 @@ export default function Service() {
 
     const toggleFormVisibility = () => {
         setIsFormVisible(!isFormVisible);
+    };
+
+    const deleteProduct = async (id) => {
+        const confirmDelete = confirm("Tem certeza que deseja deletar este produto?");
+        if (confirmDelete) {
+            try {
+                await deleteDoc(doc(db, "products", id));
+                alert("Produto deletado com sucesso!");
+                // Atualiza a lista de produtos
+                setProducts(products.filter((product) => product.id !== id));
+            } catch (error) {
+                console.error("Erro ao deletar o produto: ", error);
+            }
+        }
     };
 
     return (
@@ -81,6 +95,12 @@ export default function Service() {
                                     </button>
                                     <button className={styles.iconButton}>
                                         <i className="fa fa-random"></i>
+                                    </button>
+                                    <button
+                                        className={styles.iconButton}
+                                        onClick={() => deleteProduct(product.id)}
+                                    >
+                                        <i className="fa fa-trash"></i>
                                     </button>
                                 </div>
                             </div>
