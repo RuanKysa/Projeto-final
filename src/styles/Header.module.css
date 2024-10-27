@@ -3,7 +3,8 @@
 .container {
     background-color: #1e90ff; 
     text-align: center;
-    padding: 3em;
+    padding: 1.5em 0; /* Menor padding para uma melhor aparência */
+    position: relative; /* Para o posicionamento do carrinho */
 }
 
 .navList {
@@ -13,11 +14,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha em telas pequenas */
 }
 
 .navItem {
     display: inline-block;
-    margin: 0 10px;
+    margin: 0 15px; /* Aumentado para dar mais espaço entre os itens */
     font-size: 18px;
     font-family: 'Arial', sans-serif;
     color: #000;
@@ -27,6 +29,7 @@
     text-decoration: none;
     color: #000;
     font-weight: bold;
+    transition: color 0.3s; /* Suave transição para hover */
 }
 
 .navLink:hover {
@@ -35,6 +38,7 @@
 
 .separator {
     font-size: 24px;
+    color: #000; /* Cor da separação */
 }
 
 .userEmail {
@@ -44,8 +48,24 @@
 }
 
 .userAvatar {
-    width: 30px;
-    height: 30px;
+    width: 40px; /* Aumentado para melhor visualização */
+    height: 40px;
     border-radius: 50%; 
     object-fit: cover; 
+}
+
+.logoutButton {
+    background-color: transparent; /* Botão transparente */
+    border: none; /* Remove a borda */
+    color: #fff; /* Cor do texto */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+.cartButton {
+    background-color: transparent; /* Botão transparente */
+    border: none; /* Remove a borda */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+    font-size: 24px; /* Tamanho do ícone do carrinho */
+    color: #fff; /* Cor do ícone */
 }

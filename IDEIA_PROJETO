@@ -32,3 +32,13 @@ Mapa e informações de localização:
 Caso tenha um local físico, inclua um mapa e endereço.
 Redes sociais e outros canais de atendimento:
 Links para suas redes e meios de contato adicionais (telefone, WhatsApp, etc.).
+
+E-commerce de Produtos Personalizados(SORVETE)
+•	Front-end:
+o	Consumo de API: Consuma uma API de produtos, como a API do Mercado Livre, para listar produtos. Ou crie sua própria API para listar itens, mostrar detalhes, e realizar pedidos.
+o	Firebase (CRUD + Autenticação): Use Firebase para salvar dados dos usuários e gerenciar o carrinho de compras. Autenticação de usuários para realizar pedidos.
+o	Context API: Use Context API para gerenciar o estado do carrinho de compras e o processo de checkout.
+•	Back-end:
+o	Express e Roteamento: Crie rotas no back-end para gerenciar o catálogo de produtos e pedidos feitos pelos usuários.
+o	Sessões e Cookies: Autentique usuários utilizando sessões e cookies para permitir que eles acompanhem seus pedidos e carrinhos.
+o	Complexidade: Adicione recursos como sistema de cupons, filtro de produtos e integração com APIs de pagamento (ex.: PayPal ou Stripe).

@@ -27,7 +27,6 @@ const Login = () => {
       await signInWithEmailAndPassword(auth, email, password);
       console.log("Login bem-sucedido!");
 
-
       if (email === "adm@sorveteria.com" && password === "Ruan123") {
         setIsAdmin(true);
         console.log("Usuário é um administrador!");
@@ -69,7 +68,7 @@ const Login = () => {
     try {
       await signOut(auth);
       console.log("Logout bem-sucedido!");
-      setIsAdmin(false); 
+      setIsAdmin(false);
     } catch (err) {
       setError(err.message);
     }
@@ -111,14 +110,16 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <button type="submit">
+            <button className={styles.button} type="submit">
               {isLoginMode ? "Login" : "Cadastrar"}
             </button>
           </form>
         ) : (
           <div>
             <p>Bem-vindo, {user.email}</p>
-            <button onClick={handleLogout}>Logout</button>
+            <button className={styles.button} onClick={handleLogout}>
+              Logout
+            </button>
           </div>
         )}
         {!user && (
