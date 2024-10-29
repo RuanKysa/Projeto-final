@@ -15,8 +15,8 @@ export default function Newsletter() {
             Junte-se ao nosso boletim informativo
           </h2>
           <p>
-          Cadastre-se hoje mesmo e tenha acesso a ofertas exclusivas e
-        cupons de desconto!.
+            Cadastre-se hoje mesmo e tenha acesso a ofertas exclusivas e
+            cupons de desconto!.
           </p>
           <form className={styles.form}>
             <input

@@ -31,24 +31,6 @@ export default function Service() {
         fetchProducts();
     }, []);
 
-    // Função para adicionar produto ao carrinho
-    const addToCart = async (product) => {
-        try {
-            const response = await fetch('http://localhost:8080/adicionar', {  // Altere para sua rota correta de API
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ id: product.id }),  // Enviando apenas o ID do produto
-            });
-    
-            const result = await response.json();
-            setMessage(result.message); // Define a mensagem de sucesso
-            setTimeout(() => setMessage(""), 3000); // Limpa a mensagem após 3 segundos
-        } catch (error) {
-            console.error("Erro ao adicionar ao carrinho:", error);
-        }
-    };
 
     // Função para abrir o modal com detalhes do produto
     const openModal = (product) => {
@@ -96,10 +78,7 @@ export default function Service() {
             </section>
             <div className={styles.container}>
                 <h2 className={styles.title}>Produto principal</h2>
-                
-                {/* Exibe a mensagem de feedback */}
                 {message && <div className={styles.message}>{message}</div>}
-
                 <div className={styles.productGrid}>
                     {products.map((product) => (
                         <div key={product.id} className={styles.productCard}>
